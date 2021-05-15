@@ -1,29 +1,26 @@
 package com;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Node {
-    private Node OvergangA;
-    private Node OvergangB;
-    final String Naam;
+
+    private Map<Character, Node> overgangen = new HashMap<>();
+    final String naam;
 
     public Node(String naam) {
-        Naam = naam;
+        this.naam = naam;
     }
 
-    public Node getOvergangA() {
-        return OvergangA;
+    public void addOvergang(char c, Node node){
+        overgangen.put(c, node);
     }
 
-    public void setOvergangA(Node OvergangA) {
-        this.OvergangA = OvergangA;
+    public Node getOvergang(char c){
+        return overgangen.get(c);
     }
-
-    public Node getOvergangB() {
-        return OvergangB;
-    }
-
-    public void setOvergangB(Node OvergangB) { this.OvergangB = OvergangB; }
 
     public String getNaam() {
-        return Naam;
+        return this.naam;
     }
 }

@@ -8,17 +8,17 @@ public class Main {
         Node s2 = new Node("s2");
         Node s3 = new Node("s3");
         // overgangen instellen
-        s0.setOvergangA(s2);
-        s0.setOvergangB(s1);
+        s0.addOvergang('A',s2);
+        s0.addOvergang('B',s1);
 
-        s1.setOvergangA(s1);
-        s1.setOvergangB(s2);
+        s1.addOvergang('A',s1);
+        s1.addOvergang('B',s2);
 
         //s2.setOvergangA(s2);
-        s2.setOvergangB(s3);
+        s2.addOvergang('B',s3);
 
-        s3.setOvergangA(s3);
-        s3.setOvergangB(s0);
+        s3.addOvergang('A', s3);
+        s3.addOvergang('B', s0);
         FSM FSM1 = new FSM(s0);
         FSM1.run("AABB");
         System.out.println(FSM1.getNodePad());
