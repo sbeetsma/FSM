@@ -7,30 +7,44 @@ public class Main {
         Node s1 = new Node("s1");
         Node s2 = new Node("s2");
         Node s3 = new Node("s3");
-        // overgangen instellen
+
+        // overgangen beschreven op canvas
         s0.addOvergang('A',s2);
         s0.addOvergang('B',s1);
 
         s1.addOvergang('A',s1);
         s1.addOvergang('B',s2);
 
-        //s2.setOvergangA(s2);
         s2.addOvergang('B',s3);
 
         s3.addOvergang('A', s3);
         s3.addOvergang('B', s0);
-        FSM FSM1 = new FSM(s0);
-        FSM1.run("AABB");
-        System.out.println(FSM1.getNodePad());
-        // fout gegaan op de 2e A van de tekstinvoer huidige node is s2
-        FSM1.run("BAAB");
-        // zou vanaf node s2 verder moeten gaan en bij node s0 moeten uitkomen
-        System.out.println(FSM1.getNodePad());
 
-        // nieuw proces die een pad doorloopt zonder foutmeldingen
-        FSM FSM2 = new FSM(s0);
-        FSM2.run("BBBBABABBABBAB");
-        System.out.println(FSM2.getNodePad());
+        // fsm1 voorbeeld van canvas
+        FSM fsm1 = new FSM(s0);
+        fsm1.run("BAAB");
+        System.out.println(fsm1.getNodePad());
+
+        // extra nodes met overgang(en)
+        Node s4 = new Node("s4");
+        s4.addOvergang('D', s0);
+
+        // extra overgangen
+        s0.addOvergang('C', s3);
+        s1.addOvergang('C', s0);
+        s2.addOvergang('A', s3);
+        s2.addOvergang('C', s3);
+        s3.addOvergang('C', s4);
+
+        // fsm 2
+        FSM fsm2 = new FSM(s0);
+        fsm2.run("ABBCCD");
+        System.out.println(fsm2.getNodePad());
+
+        // fsm 3 (foutmelding want node 4 heeft geen pad A)
+        FSM fsm3 = new FSM(s0);
+        fsm3.run("ABBCCAD");
+        System.out.println(fsm3.getNodePad());
 
     }
 }
