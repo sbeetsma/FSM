@@ -11,9 +11,9 @@ public class FSM {
         this.nodePad.add(startNode);
     }
 
-    public void run(String TekstInvoer){
-        for (int i = 0; i < TekstInvoer.length(); i++){
-            char c = TekstInvoer.charAt(i);
+    public void run(String tekstInvoer){
+        for (int i = 0; i < tekstInvoer.length(); i++){
+            char c = tekstInvoer.charAt(i);
             Node volgendeNode = huidigeNode.getOvergang(c);
             if(volgendeNode == null){
                 System.out.println("Foutmelding: " + huidigeNode.getNaam() + " heeft geen pad " + c);
