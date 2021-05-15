@@ -3,41 +3,41 @@ package com;
 import java.util.ArrayList;
 
 public class FSM {
-    private Node HuidigeNode;
-    private ArrayList<Node> NodePad =  new ArrayList<>();
+    private Node huidigeNode;
+    private ArrayList<Node> nodePad =  new ArrayList<>();
 
     public FSM(Node StartNode) {
-        this.HuidigeNode = StartNode;
-        this.NodePad.add(StartNode);
+        this.huidigeNode = StartNode;
+        this.nodePad.add(StartNode);
     }
 
-    public void f(String TekstInvoer){
+    public void run(String TekstInvoer){
         for (int i = 0; i < TekstInvoer.length(); i++){
             char c = TekstInvoer.charAt(i);
 
             if(c == 'A'){
-                if(HuidigeNode.getOvergangA() == null){
-                    System.out.println("Foutmelding: " + HuidigeNode.getNaam() + " heeft geen pad A");
+                if(huidigeNode.getOvergangA() == null){
+                    System.out.println("Foutmelding: " + huidigeNode.getNaam() + " heeft geen pad A");
                     break;
                 }
-                this.HuidigeNode = HuidigeNode.getOvergangA();
-                this.NodePad.add(HuidigeNode);
+                this.huidigeNode = huidigeNode.getOvergangA();
+                this.nodePad.add(huidigeNode);
             }else if(c == 'B'){
-                if(HuidigeNode.getOvergangB() == null){
-                    System.out.println("Foutmelding: " + HuidigeNode.getNaam() + " heeft geen pad B");
+                if(huidigeNode.getOvergangB() == null){
+                    System.out.println("Foutmelding: " + huidigeNode.getNaam() + " heeft geen pad B");
                     break;
                 }
-                this.HuidigeNode = HuidigeNode.getOvergangB();
-                this.NodePad.add(HuidigeNode);
+                this.huidigeNode = huidigeNode.getOvergangB();
+                this.nodePad.add(huidigeNode);
             }
         }
         }
 
     public ArrayList<String> getNodePad() {
         ArrayList<String> NodeNamen = new ArrayList<>();
-        for (int i = 0; i < NodePad.size(); i++)
+        for (int i = 0; i < nodePad.size(); i++)
         {
-            NodeNamen.add(NodePad.get(i).getNaam());
+            NodeNamen.add(nodePad.get(i).getNaam());
         }
         return NodeNamen;
     }

@@ -20,16 +20,16 @@ public class Main {
         s3.setOvergangA(s3);
         s3.setOvergangB(s0);
         FSM FSM1 = new FSM(s0);
-        FSM1.f("AABB");
+        FSM1.run("AABB");
         System.out.println(FSM1.getNodePad());
         // fout gegaan op de 2e A van de tekstinvoer huidige node is s2
-        FSM1.f("BAAB");
+        FSM1.run("BAAB");
         // zou vanaf node s2 verder moeten gaan en bij node s0 moeten uitkomen
         System.out.println(FSM1.getNodePad());
 
         // nieuw proces die een pad doorloopt zonder foutmeldingen
         FSM FSM2 = new FSM(s0);
-        FSM2.f("BBBBABABBABBAB");
+        FSM2.run("BBBBABABBABBAB");
         System.out.println(FSM2.getNodePad());
 
     }
