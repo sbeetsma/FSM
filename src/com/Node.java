@@ -21,9 +21,7 @@ public class Node {
         return OvergangB;
     }
 
-    public void setOvergangB(Node OvergangB) {
-        this.OvergangB = OvergangB;
-    }
+    public void setOvergangB(Node OvergangB) { this.OvergangB = OvergangB; }
 
     public String getNaam() {
         return Naam;

@@ -19,19 +19,18 @@ public class Main {
 
         s3.setOvergangA(s3);
         s3.setOvergangB(s0);
-
-        Proces P1 = new Proces(s0);
-        P1.f("AABB");
-        System.out.println(P1.getNodePad());
+        FSM FSM1 = new FSM(s0);
+        FSM1.f("AABB");
+        System.out.println(FSM1.getNodePad());
         // fout gegaan op de 2e A van de tekstinvoer huidige node is s2
-        P1.f("BAAB");
+        FSM1.f("BAAB");
         // zou vanaf node s2 verder moeten gaan en bij node s0 moeten uitkomen
-        System.out.println(P1.getNodePad());
+        System.out.println(FSM1.getNodePad());
 
         // nieuw proces die een pad doorloopt zonder foutmeldingen
-        Proces P2 = new Proces(s0);
-        P2.f("BBBBABABBABBAB");
-        System.out.println(P2.getNodePad());
+        FSM FSM2 = new FSM(s0);
+        FSM2.f("BBBBABABBABBAB");
+        System.out.println(FSM2.getNodePad());
 
     }
 }

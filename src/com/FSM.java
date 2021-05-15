@@ -2,11 +2,11 @@ package com;
 
 import java.util.ArrayList;
 
-public class Proces {
+public class FSM {
     private Node HuidigeNode;
     private ArrayList<Node> NodePad =  new ArrayList<>();
 
-    public Proces(Node StartNode) {
+    public FSM(Node StartNode) {
         this.HuidigeNode = StartNode;
         this.NodePad.add(StartNode);
     }
