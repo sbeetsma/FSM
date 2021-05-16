@@ -23,4 +23,8 @@ public class Node {
     public String getNaam() {
         return this.naam;
     }
+
+    public int getAantalOvergangen(){
+        return overgangen.size();
+    }
 }
