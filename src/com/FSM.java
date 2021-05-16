@@ -1,6 +1,8 @@
 package com;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 public class FSM {
     private Node huidigeNode;
@@ -25,11 +27,27 @@ public class FSM {
         }
         }
 
-    public ArrayList<String> getNodePad() {
-        ArrayList<String> NodeNamen = new ArrayList<>();
-        for (Node node : nodePad) {
-            NodeNamen.add(node.getNaam());
-        }
-        return NodeNamen;
+    public int getPadLengte(){
+        return nodePad.size();
+    }
+
+    @Override
+    public String toString() {
+        return nodePad.stream().map(Node::getNaam).collect(Collectors.joining(", "));
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof FSM)) return false;
+
+        FSM fsm = (FSM) o;
+
+        return nodePad.equals(fsm.nodePad);
+    }
+
+    @Override
+    public int hashCode() {
+        return nodePad.hashCode();
     }
 }
