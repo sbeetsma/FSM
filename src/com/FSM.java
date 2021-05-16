@@ -1,7 +1,6 @@
 package com;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.stream.Collectors;
 
 public class FSM {
@@ -14,13 +13,17 @@ public class FSM {
     }
 
     public void run(String tekstInvoer){
+        // Voor elk character in de tekstinvoer
         for (int i = 0; i < tekstInvoer.length(); i++){
             char c = tekstInvoer.charAt(i);
+            // vraag de volgendeNode op door te kijken welke overgang hoort bij de huidige node en het huidige character.
             Node volgendeNode = huidigeNode.getOvergang(c);
+            // als de overgang niet bestaat geef foutmelding en break de loop
             if(volgendeNode == null){
                 System.out.println("Foutmelding: " + huidigeNode.getNaam() + " heeft geen pad " + c);
                 break;
             }
+            // anders bestaat de overgang wel dus de huidigeNode wordt de volgende en wordt toegevoegd aan nodePad
             this.huidigeNode = volgendeNode;
             this.nodePad.add(huidigeNode);
 
@@ -36,6 +39,7 @@ public class FSM {
         return nodePad.stream().map(Node::getNaam).collect(Collectors.joining(", "));
     }
 
+    // fsm is gelijk aan een ander als nodePad hetzelfde is
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
