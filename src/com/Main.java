@@ -23,7 +23,7 @@ public class Main {
         // fsm1 voorbeeld van canvas
         FSM fsm1 = new FSM(s0);
         fsm1.run("BAAB");
-        System.out.println(fsm1.getNodePad());
+        System.out.println(fsm1);
 
         // extra nodes met overgang(en)
         Node s4 = new Node("s4");
@@ -39,12 +39,12 @@ public class Main {
         // fsm 2
         FSM fsm2 = new FSM(s0);
         fsm2.run("ABBCCD");
-        System.out.println(fsm2.getNodePad());
+        System.out.println(fsm2);
 
         // fsm 3 (foutmelding want node 4 heeft geen pad A)
         FSM fsm3 = new FSM(s0);
         fsm3.run("ABBCCAD");
-        System.out.println(fsm3.getNodePad());
+        System.out.println(fsm3);
 
     }
 }
