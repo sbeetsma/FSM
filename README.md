@@ -14,5 +14,6 @@ src/com/FSM.java FSM class, heeft een startNode FSM krijgt een tekstInvoer van c
 UnitTests:
 
 test/com/FSMTest.java tests: run (met character overgangen), run (met gewicht overgangen), equals, equals (met gewichten, als er maar 1 mogelijk pad)
+
 test/com/NodeTest.java tests: addOvergang, addGewichtOvergang, getOvergang
  
