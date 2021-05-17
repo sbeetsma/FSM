@@ -4,9 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Node {
-    // dictionary overgangen
-    private Map<Character, Node> overgangen = new HashMap<>();
     final String naam;
+    // hashmap met overgangen
+    private Map<Character, Node> overgangen = new HashMap<>();
+    // hashmap met overgangen en hun gewichten(kans)
+    private Map<Node, Integer> gewichtOvergangen = new HashMap<>();
 
     public Node(String naam) {
         this.naam = naam;
@@ -15,6 +17,11 @@ public class Node {
     public void addOvergang(char c, Node node){
         overgangen.put(c, node);
     }
+
+    public void addGewichtOvergang(Node node, Integer gewicht){
+        gewichtOvergangen.put(node, gewicht);
+    }
+
     // krijg value op een gegeven key in de overgangen dictionary
     public Node getOvergang(char c){
         return overgangen.get(c);
@@ -24,7 +31,13 @@ public class Node {
         return this.naam;
     }
 
-    public int getAantalOvergangen(){
-        return overgangen.size();
+    public Map<Character, Node> getOvergangen() {
+        return overgangen;
     }
-}
+
+    public Map<Node, Integer> getGewichtOvergangen() {
+        return gewichtOvergangen;
+    }
+
+    }
+
