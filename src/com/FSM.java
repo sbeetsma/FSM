@@ -11,15 +11,15 @@ public class FSM {
         this.huidigeNode = startNode;
         this.nodePad.add(startNode);
     }
-    // als tekstinvoer geparsed kan worden naar een int run de fsm gebasseerd op de overgangen en hun gewichten. en staat de tekstinvoer voor het (max) aantal stappen
-    // anders op overgangen en hun character dan staat de lengte van de tekstinvoer voor het (max) aantal stappen
-    public void run(String tekstInvoer){
+    // als invoer geparsed kan worden naar een int run de fsm gebasseerd op de overgangen en hun gewichten. en staat de invoer voor het (max) aantal stappen
+    // anders op overgangen en hun character dan staat de lengte van de invoer voor het (max) aantal stappen
+    public void run(String invoer){
         // try string naar int
         try{
             // lijst waar nodes inkomen het aantal dat een node voorkomt hangt af van de gewichten van de huidige node
             // als een node een gewicht van 2 deze 2 keer wordt toegevoegd
             ArrayList<Node> nodeGewichten = new ArrayList<>();
-            for (int i = 0; i < Integer.parseInt(tekstInvoer.trim()); i++){
+            for (int i = 0; i < Integer.parseInt(invoer.trim()); i++){
                 // entries uit hashmap
                 Set<Map.Entry<Node, Integer>> entries = huidigeNode.getGewichtOvergangen().entrySet();
                 // elk gewicht heeft een key(Node) en een value(Integer)
@@ -42,8 +42,8 @@ public class FSM {
             }
         }
         catch (NumberFormatException nfe){
-            for (int i = 0; i < tekstInvoer.length(); i++){
-                char c = tekstInvoer.charAt(i);
+            for (int i = 0; i < invoer.length(); i++){
+                char c = invoer.charAt(i);
                 // vraag de volgendeNode op door te kijken welke overgang hoort bij de huidige node en het huidige character.
                 Node volgendeNode = huidigeNode.getOvergang(c);
                 // als de overgang niet bestaat geef foutmelding en break de loop
