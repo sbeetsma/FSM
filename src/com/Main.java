@@ -31,6 +31,13 @@ public class Main {
         Node s4 = new Node("s4");
         s4.addOvergang('D', s0);
 
+        // extra overgangen
+        s0.addOvergang('C', s3);
+        s1.addOvergang('C', s0);
+        s2.addOvergang('A', s3);
+        s2.addOvergang('C', s3);
+        s3.addOvergang('C', s4);
+
         // fsm 2
         FSM fsm2 = new FSM(s0);
         fsm2.run("ABBCCD");
