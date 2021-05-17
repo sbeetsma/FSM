@@ -1,5 +1,7 @@
 package com;
 
+import java.sql.SQLOutput;
+
 public class Main {
     public static void main(String[] args) {
         // nodes maken
@@ -20,7 +22,7 @@ public class Main {
         s3.addOvergang('A', s3);
         s3.addOvergang('B', s0);
 
-        // fsm1 voorbeeld van canvas
+        // benodigde voorbeeld van canvas.
         FSM fsm1 = new FSM(s0);
         fsm1.run("BAAB");
         System.out.println(fsm1);
@@ -28,13 +30,6 @@ public class Main {
         // extra nodes met overgang(en)
         Node s4 = new Node("s4");
         s4.addOvergang('D', s0);
-
-        // extra overgangen
-        s0.addOvergang('C', s3);
-        s1.addOvergang('C', s0);
-        s2.addOvergang('A', s3);
-        s2.addOvergang('C', s3);
-        s3.addOvergang('C', s4);
 
         // fsm 2
         FSM fsm2 = new FSM(s0);
@@ -45,6 +40,27 @@ public class Main {
         FSM fsm3 = new FSM(s0);
         fsm3.run("ABBCCAD");
         System.out.println(fsm3);
+
+        // FSM met gewichten
+        s0.addGewichtOvergang(s0.getOvergang('A'), 1);
+        s0.addGewichtOvergang(s0.getOvergang('B'), 1);
+
+        s1.addGewichtOvergang(s1.getOvergang('A'), 1);
+        s1.addGewichtOvergang(s1.getOvergang('B'), 1);
+
+        s2.addGewichtOvergang(s2.getOvergang('B'), 1);
+
+        s3.addGewichtOvergang(s3.getOvergang('A'), 1);
+        s3.addGewichtOvergang(s3.getOvergang('B'), 1);
+
+        // fsm 4 en fsm 5 runnen gebasseerd op de gewichten allebei 30 stappen.
+        FSM fsm4 = new FSM(s0);
+        fsm4.run("30");
+        System.out.println(fsm4);
+
+        FSM fsm5 = new FSM(s0);
+        fsm5.run("30");
+        System.out.println(fsm5);
 
     }
 }
